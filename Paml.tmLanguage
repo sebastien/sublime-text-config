@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>comment</key>
+	<string>Paml</string>
+	<key>fileTypes</key>
+	<array>
+		<string>paml</string>
+	</array>
+	<key>name</key>
+	<string>Pamela HTML/XML</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>^\#.*$</string>
+			<key>name</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^[ ]+[^\s]+$</string>
+			<key>name</key>
+			<string>invalid.whitespace</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.paml</string>
+	<key>uuid</key>
+	<string>ef88ac95-c5e4-45b2-95d9-2d2ee98dfbe4</string>
+</dict>
+</plist>

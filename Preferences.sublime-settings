@@ -1,3 +1,51 @@
+// References:
+//
+// How to create a syntax file:
+// - http://sublimetext.info/docs/en/extensibility/syntaxdefs.html
+//
+// How to have the list of syntax definitions (useful for themes)
+// - http://sublimetext.info/docs/en/extensibility/syntaxdefs.html
+//
+// The list of scopes (from TextMate)
+// - http://manual.macromates.com/en/language_grammars
 {
-	"color_scheme": "Packages/User/FF-Cyan.tmTheme"
+	"color_scheme": "Packages/User/FF-Cyan.tmTheme",
+    "draw_white_space": "all",
+    "find_selected_text": true,
+    "font_face": "Pragmata Pro",
+    "font_size": 9.0,
+    "tab_size":4,
+    "highlight_line": true,
+    "rulers": [4,8,12,79],
+    "translate_tabs_to_spaces": false,
+    "trim_trailing_white_space_on_save": true,
+    "vintage_start_in_command_mode": true,
+    "vintage_ctrl_keys": "true",
+    "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "_build", "dist", "build", "site", "Distribution", "Build"],
+    "file_exclude_patterns":[
+	    "*.sw?",
+	    "*.tmTheme.cache",
+	    "*.tmPreferences.cache",
+	    "*.tmLanguage.cache",
+	    "*.pyc",
+	    "*.pyo",
+	    "*.exe",
+	    "*.dll",
+	    "*.obj",
+	    "*.o",
+	    "*.a",
+	    "*.lib",
+	    "*.so",
+	    "*.dylib",
+	    "*.ncb",
+	    "*.sdf",
+	    "*.suo",
+	    "*.pdb",
+	    "*.idb",
+	    ".DS_Store",
+	    "*.class",
+	    "*.psd",
+	    "*.db"
+	]
 }
+// EOF

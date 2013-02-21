@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import plistlib, json, re, sys
  
+RE_COMMENT = re.compile("^\s*//.*$")
 converted = None
 args      = sys.argv[1:]
 source    = args[0]
@@ -9,13 +10,15 @@ output    = "plist"
 # Parses the source
 if   source.endswith("json"):
 	print "Reading .json", source
-	with file(source) as f: source = json.load(f)
+	with file(source) as f:
+		t = "".join([_ for _ in f.readlines() if not RE_COMMENT.match(_)])
+		source = json.loads(t)
 else:
 	print "Reading .plist", source
 	source = plistlib.readPlist(source)
 
 # Writes the destination
-for dest in args[1:]:
+for dest in (args[1:] or ["/dev/stdout"]):
 	if dest.endswith('json'):
 		print "Saving as .json", dest
 		with file(dest, "w") as f:

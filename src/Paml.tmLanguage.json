@@ -1,0 +1,19 @@
+{
+    "scopeName": "source.paml",
+    "uuid": "ef88ac95-c5e4-45b2-95d9-2d2ee98dfbe4",
+    "name": "Pamela HTML/XML",
+    "comment": "Paml",
+    "fileTypes": [
+        "paml"
+    ],
+    "patterns": [
+        {
+            "match": "^\\#.*$",
+            "name": "string"
+        },
+        {
+            "match": "^[ ]+[^\\s]+$",
+            "name": "invalid.whitespace"
+        }
+    ]
+}
