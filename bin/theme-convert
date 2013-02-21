@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import re, sys, plistlib, tempfile, os
 
 __doc__ = """
@@ -6,7 +7,7 @@ A simple meta-language to write Sublime Text syntax files
 RE_VARIABLE    = re.compile("^\s*([A-Z_]+)\s*=(.+)(#.*)?$")
 RE_COMMENT     = re.compile("^\s*(#.*)?$")
 RE_DECLARATION = re.compile(
-	"^\s*([a-z\.]+)\s*(:\s*"               # The group
+	"^\s*([A-Za-z\.]+)\s*(:\s*"               # The group
 	+ "(#[A-Fa-f0-9]+|-|[A-Z_]+)\s*"         # FG color
 	+ "(#[A-Fa-f0-9]+|-|[A-Z_]+)?\s*"        # BG color
 	+ "([a-z]+(\s*,\s*[a-z]+)*)?\s*"         # font-style
@@ -55,15 +56,13 @@ class Parser:
 
 	def getSettings( self ):
 		res = {}
-		for _ in self.variables:
-			if _.startswith("SETTING_"):
+		for full_name in self.variables:
+			if full_name.startswith("SETTING_"):
 				# We extract SETTING_ and capitalize on _
-				name      = _.split("_")[1].lower()
-				names     = name.split("_")
-				for i in range(1,len(names)):
-					names[i][0] = names[i][0].upper()
-				name      = "".join(names)
-				value     = self.variables[_]
+				name  = full_name.split("_",1)[1]
+				name  = "".join([_[0].upper() + _[1:].lower() for _ in name.split("_")])
+				name  = name[0].lower() + name[1:]
+				value = self.variables[full_name]
 				if value in self.variables: value = self.variables[value]
 				res[name] = value
 		return res

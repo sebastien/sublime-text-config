@@ -3,18 +3,155 @@ UUID                   = 7c028bef-1ab3-4ef9-ba5f-2fc2d1a623e2
 AUTHOR                 = Sebastien Pierre
 
 # Settings
-SETTING_BACKGROUND     = #2A2A2a
-SETTING_FOREGROUND     = #3A3A3A
-SETTING_LINE_HIGHLIGHT = #4A4A4A
+SETTING_BACKGROUND     = BG_GREY
+SETTING_FOREGROUND     = GREY
+SETTING_LINE_HIGHLIGHT = #3F3F3F
+SETTING_INVISIBLES     = GREY_FAINT
+SETTING_SELECTION      = #505050
 
 # Colors
-TEXT_GREY         = #D0D0D0
-TEXT_GREY_DKR     = #4A4A4A
-BLUE        = #4AE6E9
-MAGENTA     = #D01384
-GOLDEN      = #E8E5A9
+GREY         = #D0D0D0
+GREY_LIGHT   = #657575
+BG_GREY      = #2A2A2A
+GREY_FAINT   = #3A3A3A
+BG_GREY_FAINT= #3A3A3A
+BG_HIGHLIGHT = #1B3A3A
+BG_GREY_LIGHT= #4A4A4A
+WHITE        = #FFFFFF
+BLUE         = #4AE6E9
+BLUE_LIGHT   = #BBE5E6
+MAGENTA      = #D01384
+GOLDEN       = #E8E5A9
+RED          = #FD601C
 
-#
-comment:  GOLDEN bold,underline
+# COMMENTS
+comment:  #D6C454 #3A3A33 italic
+comment.block
 
+# CONSTANTS
+
+constant: BLUE
+constant.character
+constant.language
+constant.language
+
+constant.numeric: GOLDEN
+constant.numeric.c
+constant.numeric.integer.nativeint
+
+constant.other: MAGENTA
+
+css.class: BLUE
+
+# DIFF
+diff.changed
+diff.deleted
+diff.header
+diff.inserted
+
+embedded
+
+entity: #FFFFFF
+entity.name
+entity.name.class: WHITE BG_GREY_LIGHT bold
+entity.name.class.variant
+entity.name.function: WHITE bold
+
+entity.name.section
+
+entity.name.tag: BLUE
+entity.name.tag.css
+entity.name.type: MAGENTA
+entity.name.type.class: WHITE BG_HIGHLIGHT bold
+
+entity.name.type.module: - bold
+entity.name.type.token
+entity.name.type.token.reference
+entity.name.type.variant
+
+invalid: #FD601C #972B06
+invalid.deprecated
+invalid.illegal
+
+keyword: WHITE bold
+
+keyword.control
+keyword.control.import
+
+keyword.exception
+keyword.operator
+keyword.operator.class
+
+keyword.other.decorator
+keyword.other.directive
+keyword.other.unit: GOLDEN
+
+markup.bold: - bold
+markup.changed: GOLDEN
+markup.deleted: RED
+markup.heading: WHITE bold
+markup.inserted: BLUE
+markup.italic: - italic
+markup.link: MAGENTA underline
+markup.list
+markup.quote: - italic
+markup.raw: GREY
+markup.underline: - underline
+
+meta.array: WHITE
+meta.brace:  WHITE
+meta.brace.curly:  WHITE
+meta.brace.square: WHITE
+
+meta.cast
+meta.preprocessor: MAGENTA
+
+meta.selector.css: BLUE
+meta.separator
+
+meta.tag: BLUE
+meta.tag.preprocessor.xml
+meta.tag.sgml.doctype
+
+punctuation: GREY_LIGHT
+punctuation.whitespace: #FF0000
+punctuation.tabs: #FF0000
+punctuation.definition.variable
+punctuation.separator: BLUE
+
+source
+
+storage
+storage.type
+storage.type.function
+storage.type.method
+
+string: BLUE #33393A
+string.interpolated: BLUE_LIGHT
+string.interpolation: GOLDEN
+string.literal: BLUE
+string.regexp:  MAGENTA
+
+support
+support.class: WHITE bold
+support.class.exception
+support.class
+support.class
+support.constant: GOLDEN
+support.constant.color
+support.function
+support.function
+support.other
+support.other.variable
+support.type.exception
+support.variable
+
+text
+
+variable: WHITE
+variable.language
+variable.parameter: WHITE
+
+# FROM: https://github.com/gorte/ST2-Whitespaces
+Whitespaces.tab.highlight: #FF0000
 # EOF

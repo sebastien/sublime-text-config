@@ -8,12 +8,12 @@ THEME_CONVERT=../bin/theme-convert
 all: $(PRODUCT_PLIST)
 
 dev:
-	ffkit-reloader . make
+	ffkit-reloader . make -- *.*
 
 ../%: %.json
 	@$(PLIST_CONVERT) $< $@
 
 ../%.tmTheme: %.theme
-	@$(THEME_CONVERT) $< $@
+	@$(THEME_CONVERT) $< > $@
 
 # EOF
