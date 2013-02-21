@@ -8,6 +8,9 @@
 //
 // The list of scopes (from TextMate)
 // - http://manual.macromates.com/en/language_grammars
+//
+// Settings reference:
+// - http://docs.sublimetext.info/en/latest/reference/settings.html
 {
 	"color_scheme": "Packages/User/FF-Cyan.tmTheme",
     "draw_white_space": "all",

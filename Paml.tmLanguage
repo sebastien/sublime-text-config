@@ -16,13 +16,41 @@
 			<key>match</key>
 			<string>^\#.*$</string>
 			<key>name</key>
-			<string>string</string>
+			<string>comment</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>^[ ]+[^\s]+$</string>
+			<string>^[ ]+[^\s]+.*$</string>
 			<key>name</key>
-			<string>invalid.whitespace</string>
+			<string>invalid</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^\s*&lt;!DOCTYPE[^&gt;]+&gt;\s*$</string>
+			<key>name</key>
+			<string>meta.type, meta.tag</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>name.tag</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>name.type</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>name.class</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^	*&lt;([\w\d\-_]+)(#[\w\d\-_]+)?((\.[\w\d\-_]+)*)</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

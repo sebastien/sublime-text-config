@@ -1,0 +1,44 @@
+{
+    "scopeName": "source.ccss",
+    "uuid": "beae7f24-7269-4784-a1fc-1150f67abb6c",
+    "name": "CleverCSS",
+    "fileTypes": [
+        "ccss"
+    ],
+    "patterns": [
+        {
+            "match": "^\\s*//.*$",
+            "name": "comment"
+        },
+        {
+            "match": "(\\d(\\.\\d+)?)(px|%|em|pt)?",
+            "captures":{
+                "1":{"name":"constant.numeric"},
+                "3":{"name":"storage.type"}
+            }
+        },
+        {
+            "match": "\\$?[A-Z_]+",
+            "name" : "variable"
+        },
+        {
+            "match": "[\\w\\d\\-_]+",
+            "name" : "name.tag"
+        },
+        {
+            "match": "#[\\w\\d\\-_]+",
+            "name" : "name.type"
+        },
+        {
+            "match": "\\.[\\w\\d\\-_]+",
+            "name" : "name.class"
+        },
+
+        {
+            "match": "\\s+([a-z\\-]+)\\s*:\\s*(.+)\n",
+            "captures":{
+                "1":{"name":"keyword"}
+            }
+        }
+    ]
+}

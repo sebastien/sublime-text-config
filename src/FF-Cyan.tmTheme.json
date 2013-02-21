@@ -10,17 +10,36 @@
                 "background": "#2A2A2A",
                 "caret": "#01a6f3",
                 "foreground": "#D0D0D0",
-                "invisibles": "#4A4A4A",
+                "invisibles": "#202020",
                 "lineHighlight": "#3A3A3A",
                 "selection": "#606060"
             }
+        },
+        {
+            "scope": "gutter",
+            "settings": {
+                "foreground": "#FF00000"
+             }
+        },
+        // FIXME: I'd like to have whitespace and rulers separate
+        {
+            "scope": "meta",
+            "settings": {
+                "foreground": "#A0A0A0"
+             }
+        },
+        {
+            "scope": "meta.tag",
+            "settings": {
+                "foreground": "#D01384"
+             }
         },
         {
             "name": "Comment",
             "scope": "comment",
             "settings": {
                 "fontStyle": "",
-                "foreground": "#D0D0D0",
+                "foreground": "#A0A0A0",
 				"background": "#3A3A3A"
             }
         },
@@ -55,14 +74,6 @@
             }
         },
         {
-            "name": "Built-in constant",
-            "scope": "constant.language",
-            "settings": {
-                "fontStyle": "italic",
-                "foreground": "#E8E5A9"
-            }
-        },
-        {
             "name": "String",
             "scope": "string",
             "settings": {
@@ -79,6 +90,12 @@
             }
         },
         {
+            "scope": "storage.type, name.type",
+            "settings": {
+                "foreground": "#E8E5A9"
+             }
+        },
+        {
             "name": "Preprocessor line",
             "scope": "meta.preprocessor",
             "settings": {
@@ -87,31 +104,22 @@
             }
         },
         {
-            "name": "Function name",
-            "scope": "name.function",
+            "scope": "name",
             "settings": {
-                "fontStyle": "underline",
-                "foreground": "#FFFFFF"
+                "fontStyle" : "bold",
+                "color":"white"
             }
         },
         {
-            "name": "Type name",
-            "scope": "name.type",
+            "scope": "name.tag",
             "settings": {
-                "fontStyle": "bold",
-				"foreground":"#E0E0E0"
+                "fontStyle" : "normal",
+                "foreground": "#4AE6E9"
             }
         },
         {
             "name": "Other name",
             "scope": "name.other",
-            "settings": {
-                "fontStyle": "italic"
-            }
-        },
-        {
-            "name": "",
-            "scope": "variable",
             "settings": {
                 "fontStyle": "italic"
             }

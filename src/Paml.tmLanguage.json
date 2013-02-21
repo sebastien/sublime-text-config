@@ -9,11 +9,23 @@
     "patterns": [
         {
             "match": "^\\#.*$",
-            "name": "string"
+            "name": "comment"
         },
         {
-            "match": "^[ ]+[^\\s]+$",
-            "name": "invalid.whitespace"
+            "match": "^[ ]+[^\\s]+.*$",
+            "name": "invalid"
+        },
+        {
+            "match": "^\\s*<!DOCTYPE[^>]+>\\s*$",
+            "name": "meta.type, meta.tag"
+        },
+        {
+            "match": "^\t*<([\\w\\d\\-_]+)(#[\\w\\d\\-_]+)?((\\.[\\w\\d\\-_]+)*)",
+            "captures":{
+                "1":{"name" : "name.tag"},
+                "2":{"name" : "name.type"},
+                "3":{"name" : "name.class"}
+            }
         }
     ]
 }

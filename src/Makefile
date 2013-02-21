@@ -5,6 +5,9 @@ PLIST_CONVERT=./plist-convert
 
 all: $(PRODUCT_PLIST)
 	
+dev:
+	ffkit-reloader . make
+
 ../%: %.json
 	@$(PLIST_CONVERT) $< $@
 
