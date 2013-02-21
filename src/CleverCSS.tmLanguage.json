@@ -14,31 +14,42 @@
             "match": "(\\d(\\.\\d+)?)(px|%|em|pt)?",
             "captures":{
                 "1":{"name":"constant.numeric"},
-                "3":{"name":"storage.type"}
+                "3":{"name":"keyword.other.unit"}
             }
         },
         {
-            "match": "\\$?[A-Z_]+",
-            "name" : "variable"
+            "match": "\\s+([a-z\\-]+)\\s*:",
+            "captures":{
+                "1":{"name":"entity.name.attribute"}
+            }
+        },
+        {
+            "match": "\"[^\"]+\"",
+            "name":"string"
+        },
+        {
+            "match": "url\\([^\\)]+\\)",
+            "name":"constant.url"
+        },
+        {
+            "match": "(\\$?)([A-Z_]+)",
+            "captures":{
+                "1":{"name":"operator"},
+                "2":{"name":"variable"}
+            }
         },
         {
             "match": "[\\w\\d\\-_]+",
-            "name" : "name.tag"
+            "name" : "entity.name.tag"
         },
         {
             "match": "#[\\w\\d\\-_]+",
-            "name" : "name.type"
+            "name" : "entity.name.type"
         },
         {
             "match": "\\.[\\w\\d\\-_]+",
-            "name" : "name.class"
-        },
-
-        {
-            "match": "\\s+([a-z\\-]+)\\s*:\\s*(.+)\n",
-            "captures":{
-                "1":{"name":"keyword"}
-            }
+            "name" : "entity.name.class"
         }
+
     ]
 }

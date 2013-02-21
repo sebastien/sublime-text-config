@@ -31,26 +31,84 @@
 			<string>meta.type, meta.tag</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>&amp;[^;]+;</string>
+			<key>name</key>
+			<string>constant.other</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[\,\:\[\]]</string>
+			<key>name</key>
+			<string>punctuation.separator</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(%include)\s+([^\{\+]+)*.*$</string>
+			<key>name</key>
+			<string>meta.preprocessor</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>name.tentity.ype</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>invalid</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^	*(&lt;)([\w\d\-_]+)(#[\w\d\-_]+)?((\.[\w\d\-_]+)*)</string>
+		</dict>
+		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>name.tag</string>
+					<string>entity.name.attribute</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>name.type</string>
+					<string>string</string>
 				</dict>
-				<key>3</key>
+				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>name.class</string>
+					<string>entity.name.attribute</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>string</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^	*&lt;([\w\d\-_]+)(#[\w\d\-_]+)?((\.[\w\d\-_]+)*)</string>
+			<string>\(\s*([\-\d\w]+)\s*=([^\,\)]+)(,\s*([\-\d\w]+)\s*=([^\,\)]+))*\)</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

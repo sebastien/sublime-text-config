@@ -32,6 +32,15 @@
 		</dict>
 		<dict>
 			<key>scope</key>
+			<string>entity.name.attribute</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#E8E5A9</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>scope</key>
 			<string>entity.name.type.token</string>
 			<key>settings</key>
 			<dict>
@@ -90,6 +99,15 @@
 		<dict>
 			<key>scope</key>
 			<string>string.literal</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#4AE6E9</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>scope</key>
+			<string>constant.file</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -356,6 +374,8 @@
 			<string>keyword.exception</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#FD601C</string>
 			</dict>
 		</dict>
 		<dict>
@@ -559,6 +579,15 @@
 		</dict>
 		<dict>
 			<key>scope</key>
+			<string>constant.url</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#4AE6E9</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>scope</key>
 			<string>invalid.deprecated</string>
 			<key>settings</key>
 			<dict>
@@ -570,7 +599,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#4AE6E9</string>
+				<string>#E8E5A9</string>
 			</dict>
 		</dict>
 		<dict>
@@ -664,8 +693,6 @@
 			<string>keyword.other.unit</string>
 			<key>settings</key>
 			<dict>
-				<key>foreground</key>
-				<string>#E8E5A9</string>
 			</dict>
 		</dict>
 		<dict>
@@ -786,6 +813,8 @@
 			<string>keyword.operator</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#E8E5A9</string>
 			</dict>
 		</dict>
 	</array>

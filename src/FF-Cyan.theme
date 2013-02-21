@@ -30,11 +30,13 @@ comment.block
 
 # CONSTANTS
 
-constant: BLUE
+constant: GOLDEN
 constant.character
 constant.language
 constant.language
 
+constant.file: BLUE
+constant.url: BLUE
 constant.numeric: GOLDEN
 constant.numeric.c
 constant.numeric.integer.nativeint
@@ -56,6 +58,7 @@ entity.name
 entity.name.class: WHITE BG_GREY_LIGHT bold
 entity.name.class.variant
 entity.name.function: WHITE bold
+entity.name.attribute: GOLDEN
 
 entity.name.section
 
@@ -78,13 +81,13 @@ keyword: WHITE bold
 keyword.control
 keyword.control.import
 
-keyword.exception
-keyword.operator
+keyword.exception:RED
+keyword.operator:GOLDEN
 keyword.operator.class
 
 keyword.other.decorator
 keyword.other.directive
-keyword.other.unit: GOLDEN
+keyword.other.unit
 
 markup.bold: - bold
 markup.changed: GOLDEN

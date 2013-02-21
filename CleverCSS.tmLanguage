@@ -27,35 +27,11 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type</string>
+					<string>keyword.other.unit</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(\d(\.\d+)?)(px|%|em|pt)?</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\$?[A-Z_]+</string>
-			<key>name</key>
-			<string>variable</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>[\w\d\-_]+</string>
-			<key>name</key>
-			<string>name.tag</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>#[\w\d\-_]+</string>
-			<key>name</key>
-			<string>name.type</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\.[\w\d\-_]+</string>
-			<key>name</key>
-			<string>name.class</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -63,12 +39,58 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword</string>
+					<string>entity.name.attribute</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\s+([a-z\-]+)\s*:\s*(.+)
-</string>
+			<string>\s+([a-z\-]+)\s*:</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>"[^"]+"</string>
+			<key>name</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>url\([^\)]+\)</string>
+			<key>name</key>
+			<string>constant.url</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>operator</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\$?)([A-Z_]+)</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[\w\d\-_]+</string>
+			<key>name</key>
+			<string>entity.name.tag</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>#[\w\d\-_]+</string>
+			<key>name</key>
+			<string>entity.name.type</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\.[\w\d\-_]+</string>
+			<key>name</key>
+			<string>entity.name.class</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
