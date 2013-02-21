@@ -1,0 +1,96 @@
+import re, sys, plistlib, tempfile, os
+
+__doc__ = """
+A simple meta-language to write Sublime Text syntax files
+"""
+RE_VARIABLE    = re.compile("^\s*([A-Z_]+)\s*=(.+)(#.*)?$")
+RE_COMMENT     = re.compile("^\s*(#.*)?$")
+RE_DECLARATION = re.compile(
+	"^\s*([a-z\.]+)\s*(:\s*"               # The group
+	+ "(#[A-Fa-f0-9]+|-|[A-Z_]+)\s*"         # FG color
+	+ "(#[A-Fa-f0-9]+|-|[A-Z_]+)?\s*"        # BG color
+	+ "([a-z]+(\s*,\s*[a-z]+)*)?\s*"         # font-style
+	+ ")?"
+	+ "(#.*)?$"
+)
+
+class Parser:
+
+	def __init__( self ):
+		self.variables = {}
+		self.groups    = {}
+
+	def parse( self, path ):
+		with file(path) as f:
+			map(self.parseLine, f.readlines())
+
+	def parseLine( self, line ):
+		if RE_VARIABLE.match(line):
+			m = RE_VARIABLE.match(line)
+			name = m.group(1).strip()
+			value = m.group(2).strip()
+			self.variables[name] = value
+		elif RE_DECLARATION.match(line):
+			m     = RE_DECLARATION.match(line)
+			group = m.group(1)
+			fg    = (m.group(3) or "").strip()
+			bg    = (m.group(4) or "").strip()
+			font  = " ".join([_.strip() for _ in (m.group(5) or "").split(",")])
+			res   = {}
+			if fg and fg[0] == "#":
+				res["foreground"] = fg
+			elif fg and fg != "-":
+				res["foreground"] = self.variables[fg]
+			if bg and bg[0] == "#":
+				res["background"] = bg
+			elif bg and bg != "-":
+				res["background"] = self.variables[bg]
+			if font:
+				res["fontStyle"]  = font
+			self.groups[group] = res
+		elif RE_COMMENT.match(line):
+			pass
+		else:
+			raise Exception("Syntax error: unrecognized line " + repr(line))
+
+	def getSettings( self ):
+		res = {}
+		for _ in self.variables:
+			if _.startswith("SETTING_"):
+				# We extract SETTING_ and capitalize on _
+				name      = _.split("_")[1].lower()
+				names     = name.split("_")
+				for i in range(1,len(names)):
+					names[i][0] = names[i][0].upper()
+				name      = "".join(names)
+				value     = self.variables[_]
+				if value in self.variables: value = self.variables[value]
+				res[name] = value
+		return res
+
+	def export( self ):
+		settings = [{"settings":self.getSettings()}]
+		for scope in self.groups:
+			settings.append(dict(
+				scope    = scope,
+				settings = self.groups[scope]
+			))
+		return dict(
+			author   = self.variables.get("AUTHOR") or "AUTHOR",
+			name     = self.variables.get("NAME")   or "NAME",
+			uuid     = self.variables["UUID"],
+			settings = settings
+		)
+
+	def asPlist(self):
+		path = tempfile.mktemp()
+		plistlib.writePlist(self.export(), path)
+		with file(path) as f: res = f.read()
+		os.unlink(path)
+		return res
+
+if __name__ == "__main__":
+	p = Parser()
+	map(p.parse, sys.argv[1:])
+	print p.asPlist()
+# EOF

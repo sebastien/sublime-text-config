@@ -23,7 +23,7 @@
     "translate_tabs_to_spaces": false,
     "trim_trailing_white_space_on_save": true,
     "vintage_start_in_command_mode": true,
-    "vintage_ctrl_keys": "true",
+    "vintage_ctrl_keys": true,
     "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "_build", "dist", "build", "site", "Distribution", "Build"],
     "file_exclude_patterns":[
 	    "*.sw?",

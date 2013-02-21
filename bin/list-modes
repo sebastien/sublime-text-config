@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+import re, glob
+from os.path import *
+RE_MODE = re.compile("^[a-z\.]+$")
+SCHEMES_PATH = dirname(abspath(__file__)) + "/../../Color Scheme - Default/"
+print SCHEMES_PATH
+modes = set()
+for _ in glob.glob(SCHEMES_PATH + "*.*"):
+	with file(_) as f:
+		for l in f.readlines():
+			if "<string>" not in l: continue
+			l = l.split("<string>")[1].split("<")[0]
+			if not RE_MODE.match(l): continue
+			modes.add(l)
+print "\n".join(sorted(modes))
+# EOF

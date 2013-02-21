@@ -1,0 +1,20 @@
+NAME                   = FF-Cyan
+UUID                   = 7c028bef-1ab3-4ef9-ba5f-2fc2d1a623e2
+AUTHOR                 = Sebastien Pierre
+
+# Settings
+SETTING_BACKGROUND     = #2A2A2a
+SETTING_FOREGROUND     = #3A3A3A
+SETTING_LINE_HIGHLIGHT = #4A4A4A
+
+# Colors
+TEXT_GREY         = #D0D0D0
+TEXT_GREY_DKR     = #4A4A4A
+BLUE        = #4AE6E9
+MAGENTA     = #D01384
+GOLDEN      = #E8E5A9
+
+#
+comment:  GOLDEN bold,underline
+
+# EOF
