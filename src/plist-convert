@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+import plistlib, json, re, sys
+ 
+converted = None
+args      = sys.argv[1:]
+source    = args[0]
+output    = "plist"
+
+# Parses the source
+if   source.endswith("json"):
+	print "Reading .json", source
+	with file(source) as f: source = json.load(f)
+else:
+	print "Reading .plist", source
+	source = plistlib.readPlist(source)
+
+# Writes the destination
+for dest in args[1:]:
+	if dest.endswith('json'):
+		print "Saving as .json", dest
+		with file(dest, "w") as f:
+			json.dump(source, f, sort_keys=True, indent=4)
+	else:
+		print "Saving as .plist", dest
+		plistlib.writePlist(source, dest)
+
+# EOF

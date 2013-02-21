@@ -1,0 +1,100 @@
+{
+    "comment": "Sugar JavaScript", 
+    "fileTypes": [
+        "sjs"
+    ], 
+    "foldingStartMarker": "(?x)^\n\t    (\\s*+\n\t        (@module|@method|@class|@function|@constructor|@group\n\t        |if ))\n\n\t", 
+    "foldingStopMarker": "(?x)\n\t\t(   (^|;) \\s*+ @end   \\s*+ ([#].*)? $\n\t\t|    (^|;) \\s*+ end   \\s*+ ([#].*)? $\n\t\t|   ^     \\s*+ [}\\]] \\s*+ ([#].*)? $\n\t\t|   [#] .*? \\(end\\) \\s*+ $    # Sune\u2019s special marker\n\t\t)", 
+    "keyEquivalent": "~@S", 
+    "name": "Sugar JavaScript", 
+    "patterns": [
+        {
+            "match": "(@(shared|end|group|property|exception|embed))|\\b(try|catch|finally|super|var|return|for|while|if|end|else|new)\\b", 
+            "name": "keyword.control.sjs"
+        }, 
+        {
+            "captures": {
+                "3": {
+                    "name": "keyword.class.sjs"
+                }, 
+                "4": {
+                    "name": "entity.name.type"
+                }, 
+                "6": {
+                    "name": "entity.other.inherited-class.sugar"
+                }
+            }, 
+            "match": "(?x)^\n\t\t\t\t(\n\t\t\t\t\t (^\\s*(@class|@module)\\s+(\\w+))(\\s*:\\s*(\\w+))? #for normal stuff\n\t\t\t\t)\n\t\t\t"
+        }, 
+        {
+            "captures": {
+                "0": {
+                    "name": "entity.name.function"
+                }, 
+                "3": {
+                    "name": "keyword.declaration.sjs"
+                }, 
+                "7": {
+                    "name": "keyword.declaration.sjs"
+                }, 
+                "8": {
+                    "name": "variable.parameter"
+                }
+            }, 
+            "match": "(?x)^\n\t\t\t\t(\n\t\t\t\t\t (^\\s*(@(method|group|operation|function|abstract|protocol|specific))(\\s+\\w+)) #for normal stuff\n\t\t\t\t    | (^\\s*(@constructor)) #for constructor\n\t\t\t\t)\n\t\t\t\t ((,?\\s+\\w+)*)(.*,?.*)  # for the parameters\n\t\t\t"
+        }, 
+        {
+            "captures": {
+                "0": {
+                    "name": "meta.function-call"
+                }
+            }, 
+            "match": "\\b[a-z$][$A-Za-z0-9_\\-]+(?=\\((.*)\\))"
+        }, 
+        {
+            "begin": "\"", 
+            "end": "\"", 
+            "name": "string.quoted.double.sjs", 
+            "patterns": [
+                {
+                    "match": "\\\\.", 
+                    "name": "constant.character.escape.sjs"
+                }
+            ]
+        }, 
+        {
+            "match": "(#).*$\\n?", 
+            "name": "comment.line.number-sign.sjs"
+        }, 
+        {
+            "captures": {
+                "1": {
+                    "name": "comment.line.documentation.sjs"
+                }
+            }, 
+            "match": "^\\s*(\\|.*$\\n?)"
+        }, 
+        {
+            "match": "(\\b)(<|>|<\\=|>\\=|\\=\\=|!\\=|<>|and|is|or|not)(\\b)", 
+            "name": "keyword.operator.comparison.sugar"
+        }, 
+        {
+            "match": "\\=", 
+            "name": "keyword.operator.assignment.sugar"
+        }, 
+        {
+            "match": "(\\b)(this|self|target|null|true|false|True|False|Undefined)(\\b)", 
+            "name": "constant.language.sugar"
+        }, 
+        {
+            "match": "((?<=var )[a-zA-Z0-9\\-_]+\\b)|((?<=@property )[a-zA-Z0-9\\-_]+\\b)|((?<=@shared )[a-zA-Z0-9\\-_]+\\b)", 
+            "name": "variable.other.sugar"
+        }, 
+        {
+            "match": "(-|\\+)?\\s*[0-9]+(\\.[0-9]+)?", 
+            "name": "constant.numeric.sugar"
+        }
+    ], 
+    "scopeName": "source.sjs", 
+    "uuid": "5C74AC12-869D-41D8-935B-65CCA1BD7D7E"
+}
